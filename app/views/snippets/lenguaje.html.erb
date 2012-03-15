@@ -1,0 +1,34 @@
+<h1>Snippets escritos en <%= Lenguaje.find(params[:id]).nombre %></h1>
+<center>
+<table align="center" style="border:1px black solid;width:100%;font-size:1em">
+  <tr>
+    <td><strong>Title</strong></td>
+    <td><strong>Tags</strong></td>
+    <td><strong>Lenguaje</strong></td>
+    <td><strong>Posteado por</strong></td>
+  </tr>
+
+<% @snippets.each do |snippet| %>
+  <tr>
+    <td><%= link_to snippet.title, snippet %></td>
+   <td><%=h snippet.tag_list %></td>
+
+    <td><%= link_to Lenguaje.find(snippet.lenguaje).nombre, "/snippets/lenguaje/"+snippet.lenguaje.to_s %></td>
+    <td><%=h User.find(snippet.id_user).username %>
+	<% if user_signed_in? %>
+		<% if current_user.username ==  User.find(snippet.id_user).username %>
+    		|  <%= link_to 'Edit', edit_snippet_path(snippet) %>
+		| <%= link_to 'Borrar', snippet_path(snippet), :confirm => "Seguro?", :method => :delete %>
+		<% end %>
+	<% end %>
+	</td>	
+  </tr>
+<% end %>
+</table>
+</center>
+
+<br />
+<br />
+<br />
+
+<%= link_to 'Volver', snippets_path %>

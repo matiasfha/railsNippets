@@ -1,0 +1,80 @@
+<% cache do %>
+<!DOCTYPE>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>VisionLabs Snippets</title>
+    <%= stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/default/style"%>
+    <%= stylesheet_link_tag :harsh %>   
+<style type="text/css" media="Screen">
+* .ex1 {
+  float: left;
+  width: 50%;
+}
+  .css1 { font-size: 0.6em; }
+  .css2 { font-size: 0.8em; }
+  .css3 { font-size: 0.9em; }
+  .css4 { font-size: 1.2em; }
+</style>
+
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">VisionLabs Snippets</a></h1>
+      <div id="user-navigation">
+        <ul class="wat-cf">
+<% end %>
+		<% if user_signed_in? %>
+			<li>Logeado como <%= current_user.username %> | <%= link_to "Salir", destroy_user_session_path %>
+			</li>
+		<% else %>
+			<li><%= link_to "Ingresar", new_user_session_path %> o </li>
+			<li><%= link_to "Registrar", new_user_registration_path %></li>
+		<% end %>
+
+        </ul>
+      </div>      
+      <div id="main-navigation">
+        <ul class="wat-cf"></ul>
+      </div>
+    </div>    
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+		 <% form_tag :controller => 'snippets', :action => 'search', :method => 'get' do %>
+		 <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+		 <%= submit_tag "Buscar", :name => nil %>
+		<% end %>
+		
+        <%= yield %>
+<% cache('footer') do %>        
+<div id="footer">
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> VisionLabs.</p>
+			<p>Creado por <%= h("Matías Hernández Arellano") %> | <%= link_to "mhernandez@visionlabs.cl", "mailto:mhernandez@visionlabs.cl"%> Para VisionLabs
+          </div>      
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>    
+  </div>
+</body>
+</html>
+<% end %>

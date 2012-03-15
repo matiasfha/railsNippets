@@ -1,0 +1,83 @@
+--- !ruby/object:Gem::Specification 
+name: devise
+version: !ruby/object:Gem::Version 
+  hash: 7
+  prerelease: 
+  segments: 
+  - 1
+  - 0
+  - 8
+  version: 1.0.8
+platform: ruby
+authors: 
+- "Jos\xC3\xA9 Valim"
+- "Carlos Ant\xC3\xB4nio"
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2010-06-22 00:00:00 Z
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: warden
+  prerelease: false
+  requirement: &id001 !ruby/object:Gem::Requirement 
+    none: false
+    requirements: 
+    - - ~>
+      - !ruby/object:Gem::Version 
+        hash: 49
+        segments: 
+        - 0
+        - 10
+        - 3
+        version: 0.10.3
+  type: :runtime
+  version_requirements: *id001
+description: Flexible authentication solution for Rails with Warden
+email: contact@plataformatec.com.br
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README.rdoc
+- TODO
+files: 
+- README.rdoc
+- TODO
+homepage: http://github.com/plataformatec/devise
+licenses: []
+
+post_install_message: 
+rdoc_options: 
+- --charset=UTF-8
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  none: false
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      hash: 3
+      segments: 
+      - 0
+      version: "0"
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.7.2
+signing_key: 
+specification_version: 3
+summary: Flexible authentication solution for Rails with Warden
+test_files: []
+

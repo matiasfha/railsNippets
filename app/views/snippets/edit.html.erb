@@ -1,0 +1,43 @@
+<h1>Editar snippet</h1>
+
+<% @array = Array.new
+	Lenguaje.all.each do |item|
+		@array << [item.nombre,item.id]
+	end
+%>
+<% form_for(@snippet) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label "Título" %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label "Código" %><br />
+    <%= f.text_area :codigo, :size =>'70x10' %>
+  </p>
+  <p>
+    <%= f.label "Descripción"%><br />
+    <%= f.text_area :descripcion, :size => '70x6' %>
+  </p>
+  <p>
+	<div class="ex1">
+    	<%= f.label "Tags" %><br />
+    	<%= f.text_field :tag_list, :hint => "Separados por coma" %>
+	</div>
+	<div class="ex1">
+		<%= f.label :lenguaje %><br />
+	    <%= f.select :lenguaje, options_for_select(@array) %>
+	</div>
+	<div class="clear"></div>
+  </p>
+  <%= f.hidden_field :id_user, :value => current_user.id %>
+
+  
+  <p>
+    <%= f.submit 'Guardar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Ver', @snippet %> |
+<%= link_to 'Volver', snippets_path %>

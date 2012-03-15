@@ -1,0 +1,45 @@
+  [4;36;1mSQL (1.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "snippets" [0m
+
+
+Processing SnippetsController#create (for 0.0.0.0 at 2011-04-19 17:36:24) [POST]
+  Parameters: {"snippet"=>{}}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "snippets" [0m
+  [4;35;1mSnippet Load (0.7ms)[0m   [0mSELECT * FROM "snippets" WHERE ("snippets"."id" = 980190962) [0m
+
+
+Processing SnippetsController#destroy (for 0.0.0.0 at 2011-04-19 17:36:24) [DELETE]
+  Parameters: {"id"=>"980190962"}
+  [4;36;1mSnippet Load (0.8ms)[0m   [0;1mSELECT * FROM "snippets" WHERE ("snippets"."id" = 980190962) [0m
+
+
+Processing SnippetsController#edit (for 0.0.0.0 at 2011-04-19 17:36:24) [GET]
+  Parameters: {"id"=>"980190962"}
+
+
+Processing SnippetsController#index (for 0.0.0.0 at 2011-04-19 17:36:24) [GET]
+  [4;35;1mSnippet Load (1.0ms)[0m   [0mSELECT * FROM "snippets" [0m
+Rendering template within layouts/snippets
+Rendering snippets/index
+  [4;36;1mActsAsTaggableOn::Tag Load (0.5ms)[0m   [0;1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags".id = "taggings".tag_id WHERE (((taggings.context = 'tags' AND taggings.tagger_id IS NULL) AND (("taggings".taggable_id = 298486374) AND ("taggings".taggable_type = 'Snippet'))) AND (("taggings".taggable_id = 298486374) AND ("taggings".taggable_type = 'Snippet'))) [0m
+  [4;35;1mLenguaje Load (0.3ms)[0m   [0mSELECT * FROM "lenguajes" WHERE ("lenguajes"."id" = 1) [0m
+
+
+Processing SnippetsController#new (for 0.0.0.0 at 2011-04-19 17:36:24) [GET]
+  [4;36;1mSnippet Load (0.9ms)[0m   [0;1mSELECT * FROM "snippets" WHERE ("snippets"."id" = 980190962) [0m
+
+
+Processing SnippetsController#show (for 0.0.0.0 at 2011-04-19 17:36:24) [GET]
+  Parameters: {"id"=>"980190962"}
+  [4;35;1mSnippet Load (0.8ms)[0m   [0mSELECT * FROM "snippets" WHERE ("snippets"."id" = 980190962) [0m
+
+
+Processing SnippetsController#update (for 0.0.0.0 at 2011-04-19 17:36:24) [PUT]
+  Parameters: {"id"=>"980190962", "snippet"=>{}}

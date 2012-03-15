@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  codigo: MyText
+  descripcion: MyText
+  tags: MyString
+  id_user: 1
+  lenguaje: 1
+
+two:
+  title: MyString
+  codigo: MyText
+  descripcion: MyText
+  tags: MyString
+  id_user: 1
+  lenguaje: 1
